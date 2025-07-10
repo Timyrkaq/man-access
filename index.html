@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Приватний розділ</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+      padding-top: 100px;
+    }
+    #secretContent {
+      display: none;
+      margin-top: 30px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    input[type="password"] {
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-left: 10px;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Введіть пароль для доступу</h2>
+  <input type="password" id="passwordInput" placeholder="Пароль">
+  <button onclick="checkPassword()">Увійти</button>
+  <div class="error" id="errorMessage"></div>
+
+  <div id="secretContent">
+    <h3>Приватна інформація</h3>
+    <p>Вітаю, ти отримав доступ до закритого розділу. Тут може бути що завгодно: посилання, фото, відео, текст і т.д.</p>
+    <a href="https://example.com" target="_blank">Перейти за посиланням</a>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const correctPassword = "tvoiparol123"; // ← тут змінюй пароль!
+      const enteredPassword = document.getElementById("passwordInput").value;
+      const content = document.getElementById("secretContent");
+      const error = document.getElementById("errorMessage");
+
+      if (enteredPassword === correctPassword) {
+        content.style.display = "block";
+        error.textContent = "";
+      } else {
+        error.textContent = "Неправильний пароль. Спробуй ще раз.";
+        content.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
